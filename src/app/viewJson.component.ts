@@ -13,14 +13,16 @@ export class ViewJsonComponent implements OnInit {
     @Input() someText: string;
     @Input() someText2: string = "hello";
     @Input() jobj: JsonObject;
+
     anyData: any;
 
     constructor(private jsonService: JsonService) {
         //this.getJson4();
+        this.anyData = jsonService.getNew1();
      }
 
     ngOnInit(){
-         this.getNew1()
+         this.jsonService.getNew1()
      }
 
     getJson() {
@@ -56,7 +58,7 @@ export class ViewJsonComponent implements OnInit {
      }
 
      getNew1(){
-         this.jsonService.getNew1().subscribe(res => this.anyData = res)
+         return this.jsonService.getNew1().subscribe(res => this.jsonObject = res)
      }
      
 }
