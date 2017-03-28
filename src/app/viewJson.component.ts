@@ -1,7 +1,9 @@
+import { AppConfig } from './app.config';
 import { Observable } from 'rxjs/Rx';
 import { JsonObject } from './jsonObject';
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, APP_INITIALIZER } from '@angular/core';
 import { JsonService } from "app/json.service";
+import {Router} from '@angular/router'
 
 
 @Component({
@@ -16,14 +18,21 @@ export class ViewJsonComponent implements OnInit {
 
     anyData: any;
 
-    constructor(private jsonService: JsonService) {
+    constructor(private jsonService: JsonService, private config:AppConfig) {
         this.getJson4();
         //this.anyData = jsonService.getNew1();
      }
 
     ngOnInit(){
          this.getNew1()
+         setTimeout(() => 
+            {
+                //this.router.navigate(['/']);
+            },
+            2000);
      }
+
+    
 
     getJson() {
         this.jsonService
@@ -58,7 +67,11 @@ export class ViewJsonComponent implements OnInit {
      }
 
      getNew1(){
+         console.log(this.config.getEnv('env'))
+         console.log(this.config.getConfig('publicJson'));
+
          return this.jsonService.getNew1().subscribe(res => this.anyData = res)
+         //return this.jsonService.getNew1().map(res => this.anyData = res)
      }
      
 }

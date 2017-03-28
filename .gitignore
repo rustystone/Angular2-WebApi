@@ -32,6 +32,10 @@
 npm-debug.log
 testem.log
 /typings
+sample.json
+config.development.json
+env.json
+config.production.json
 
 # e2e
 /e2e/*.js
