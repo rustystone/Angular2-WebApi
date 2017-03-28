@@ -15,8 +15,8 @@ import { Injectable } from "@angular/core";
 
 @Injectable()
 export class JsonService {
-    private apiUrl = "http://127.0.0.1:3000/getJSONnumberextra/55/77";
-    //private apiUrl = "http://jsonplaceholder.typicode.com/posts/1";
+    //private apiUrl = "http://127.0.0.1:3000/getJSONnumberextra/55/77";
+    private apiUrl = "http://jsonplaceholder.typicode.com/posts/1";
    
 
     constructor(private http:Http){}
